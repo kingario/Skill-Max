@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>SkillMax | Real Life Skill Maxing & Self-Improvement MVP</title>
+  <!-- Google Fonts & simple CSS reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fefef7;
+      color: #1a2c2e;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* header / nav */
+    .navbar {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid #e2e8e0;
+      background: #fefef7;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(2px);
+      background-color: rgba(254, 254, 247, 0.92);
+    }
+
+    .nav-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1e6f5c, #289672);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .logo span {
+      color: #2c7a5e;
+      background: none;
+      -webkit-background-clip: unset;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2d4a4b;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      color: #1e6f5c;
+      border-bottom: 2px solid #1e6f5c;
+      padding-bottom: 4px;
+    }
+
+    /* buttons & utility */
+    .btn-primary {
+      display: inline-block;
+      background: #1e6f5c;
+      color: white;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .btn-primary:hover {
+      background: #0f5545;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(30,111,92,0.2);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #1e6f5c;
+      color: #1e6f5c;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      background: #e0f2ef;
+      transform: translateY(-2px);
+    }
+
+    /* hero */
+    .hero {
+      padding: 4rem 0 5rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(145deg, #144d41, #2c8b72);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 720px;
+      margin: 1rem auto 2rem;
+      color: #3a5a5c;
+    }
+
+    .hero-badge {
+      background: #e9f3f0;
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #1e6f5c;
+      margin-bottom: 1.5rem;
+    }
+
+    /* pillars grid */
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-align: center;
+      margin: 3rem 0 1rem;
+      color: #1e3e3a;
+    }
+
+    .section-sub {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 3rem;
+      color: #527a74;
+      font-size: 1.1rem;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0 3rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 32px;
+      padding: 1.8rem 1.6rem;
+      box-shadow: 0 12px 28px -8px rgba(0, 32, 32, 0.08);
+      transition: all 0.25s;
+      border: 1px solid #e2efe8;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 32px -12px rgba(30,111,92,0.15);
+      border-color: #cde2da;
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .card h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #1e6f5c;
+    }
+
+    .card p {
+      color: #3d5c59;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .micro-list {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .micro-list li {
+      margin-bottom: 0.65rem;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .check {
+      color: #1e6f5c;
+      font-weight: bold;
+    }
+
+    /* Daily step CTA */
+    .step-zone {
+      background: linear-gradient(120deg, #eef7f3, #e2f0ea);
+      border-radius: 48px;
+      padding: 3rem 2rem;
+      margin: 4rem 0;
+      text-align: center;
+    }
+
+    .step-zone h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-card {
+      background: white;
+      max-width: 560px;
+      margin: 2rem auto 0;
+      border-radius: 48px;
+      padding: 1.8rem;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+    }
+
+    .step-prompt {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .step-input-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    #stepInput {
+      flex: 1;
+      min-width: 200px;
+      padding: 14px 18px;
+      border-radius: 60px;
+      border: 1px solid #cbdcd6;
+      font-size: 1rem;
+      font-family: inherit;
+      background: white;
+    }
+
+    #stepInput:focus {
+      outline: none;
+      border-color: #1e6f5c;
+      box-shadow: 0 0 0 2px rgba(30,111,92,0.2);
+    }
+
+    .step-feedback {
+      margin-top: 1.5rem;
+      font-weight: 500;
+      background: #eef2ef;
+      padding: 12px;
+      border-radius: 60px;
+      color: #1a5a4b;
+    }
+
+    /* category details section (accordion style / mini tips) */
+    .tips-section {
+      margin: 3rem 0 2rem;
+    }
+    .category-tips {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+      margin: 2rem 0;
+    }
+    .tip-card {
+      background: white;
+      border-radius: 28px;
+      padding: 1.5rem;
+      border-left: 6px solid #1e6f5c;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.02);
+    }
+    .tip-card h4 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tip-card p {
+      color: #436764;
+      font-size: 0.95rem;
+    }
+
+    /* footer */
+    footer {
+      border-top: 1px solid #ddebe5;
+      margin-top: 4rem;
+      padding: 2rem 0;
+      text-align: center;
+      color: #6b8b86;
+    }
+
+    @media (max-width: 680px) {
+      .hero h1 { font-size: 2.4rem; }
+      .section-title { font-size: 1.8rem; }
+      .navbar { padding: 1rem 0; }
+      .nav-flex { flex-direction: column; }
+      .step-input-group { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-flex">
+    <div class="logo">⚡ Skill<span>Max</span></div>
+    <div class="nav-links">
+      <a href="#pillars">Pillars</a>
+      <a href="#daily-step">Daily Step</a>
+      <a href="#insights">Insights</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+    <!-- Hero section -->
+    <div class="hero">
+      <div class="hero-badge">📈 real life skill maxing • one step at a time</div>
+      <h1>Level up your <br> real‑world operating system</h1>
+      <p>From sharpening your mind to strengthening your body, mastering money, and connecting deeply — this is your MVP for intentional growth. Small daily upgrades, massive compound returns.</p>
+      <a href="#daily-step" class="btn-primary">✨ Start today’s upgrade →</a>
+    </div>
+
+    <!-- Core pillars (skill categories) -->
+    <div id="pillars">
+      <h2 class="section-title">🏆 The 4 core skills to max</h2>
+      <div class="section-sub">General knowledge · Communication · Health · Finance — and the art of consistency</div>
+      <div class="pillars-grid">
+        <!-- General Knowledge card -->
+        <div class="card">
+          <div class="card-icon">📚🧠</div>
+          <h3>General Knowledge</h3>
+          <p>Curiosity as a superpower. Learn how the world works — science, history, tech, and culture. Become a sharper thinker and better problem solver.</p>
+          <ul class="micro-list">
+            <li><span class="check">✓</span> Read 10 pages/day non‑fiction</li>
+            <li><span class="check">✓</span> Weekly podcast: economics / science</li>
+            <li><span class="check">✓</span> Map concepts: mental models toolkit</li>
+          </ul>
+        </div>
+        <!-- Communication card -->
+        <div class="card">
+          <div class="card-icon">🗣️💬</div>
+          <h3>Communication</h3>
+          <p>Influence, empathy, storytelling, and active listening. Master conversations that open doors and deepen relationships.</p>
+          <ul class="micro-list">
+            <li><span class="check">✓</span> Practice active listening daily</li>
+            <li><span class="check">✓</span> Learn one persuasive framework</li>
+            <li><span class="check">✓</span> 2 min impromptu speaking drill</li>
+          </ul>
+        </div>
+        <!-- Health card -->
+        <div class="card">
+          <div class="card-icon">💪🧘</div>
+          <h3>Health & Vitality</h3>
+          <p>Energy, sleep, movement, and mental resilience. Your body is the vehicle — optimize it for peak performance and longevity.</p>
+          <ul class="micro-list">
+            <li><span class="check">✓</span> 7+ hours sleep & morning sunlight</li>
+            <li><span class="check">✓</span> 30 min daily movement (walk/lift)</li>
+            <li><span class="check">✓</span> Hydrate & whole foods focus</li>
+          </ul>
+        </div>
+        <!-- Finance card -->
+        <div class="card">
+          <div class="card-icon">💰📊</div>
+          <h3>Financial Wisdom</h3>
+          <p>Build security, invest in your future, and design freedom. From budgeting basics to wealth-building habits.</p>
+          <ul class="micro-list">
+            <li><span class="check">✓</span> Track expenses for 1 week</li>
+            <li><span class="check">✓</span> 50/30/20 rule (needs/wants/save)</li>
+            <li><span class="check">✓</span> Learn one investing concept</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dynamic daily step: MVP interactive "one step at a time" -->
+    <div id="daily-step" class="step-zone">
+      <h2>📌 One step at a time — your micro‑action today</h2>
+      <p style="max-width: 560px; margin: 0 auto;">Self-improvement isn’t about perfection; it’s about small, consistent upgrades. Pick your daily skill challenge.</p>
+      <div class="step-card">
+        <div class="step-prompt">⚡ Today’s skill challenge:</div>
+        <div class="step-input-group">
+          <input type="text" id="stepInput" placeholder="e.g., 'Read 10 pages of a book', 'Do 20 push-ups', 'Listen without interrupting'" value="Write down one financial goal for this month">
+          <button id="commitBtn" class="btn-primary" style="padding: 12px 24px;">✔️ Commit & level up</button>
+        </div>
+        <div id="stepFeedback" class="step-feedback">
+          💡 Click commit to lock in your daily action. Progress over perfection.
+        </div>
+      </div>
+    </div>
+
+    <!-- deeper insights / quick reference with actionable tips per area -->
+    <div id="insights">
+      <h2 class="section-title">🔍 Level‑up tactics: actionable micro‑habits</h2>
+      <div class="section-sub">Real world skill maxing happens in the margins — these tiny upgrades create massive momentum.</div>
+      <div class="category-tips">
+        <div class="tip-card">
+          <h4>📖 General Knowledge</h4>
+          <p><strong>5‑min rule:</strong> Use curiosity gaps. Every day read one Wikipedia article about a topic you know nothing about. Follow with the “Feynman technique”: explain it to a 10‑year‑old.</p>
+        </div>
+        <div class="tip-card">
+          <h4>🗣️ Communication</h4>
+          <p><strong>Mirror & label:</strong> In conversations, repeat the last 2–3 words or paraphrase emotions. It builds trust and understanding. Try 'It sounds like you feel...'</p>
+        </div>
+        <div class="tip-card">
+          <h4>💪 Health</h4>
+          <p><strong>Grease the groove:</strong> Do 5 squats or push-ups every hour. Micro workouts + NEAT movement + hydration first thing in the AM. Sleep by 10:30pm challenge.</p>
+        </div>
+        <div class="tip-card">
+          <h4>💰 Finance</h4>
+          <p><strong>Automate 1%:</strong> Increase savings rate by 1% each month. Use a no‑spend day weekly. Read one personal finance chapter every Sunday.</p>
+        </div>
+        <div class="tip-card">
+          <h4>🧠 Mindset</h4>
+          <p><strong>Daily reflection:</strong> What went well? What can I improve 1%? Journal 2 minutes. Growth happens in the review loop.</p>
+        </div>
+        <div class="tip-card">
+          <h4>⚙️ Consistency Engine</h4>
+          <p><strong>Habit stacking:</strong> After I brush my teeth, I will do 1 minute of deep breathing / reading 1 page. Anchor new habits to existing routines.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- monthly skill tracker mockup: simple "challenge" -->
+    <div style="background: #ffffff; border-radius: 32px; padding: 2rem; margin: 2rem 0; border: 1px solid #deede6;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+        <div>
+          <h3 style="font-size: 1.6rem; margin-bottom: 0.25rem;">🏅 30‑day skill maxing challenge</h3>
+          <p>Pick one pillar & track streaks. Compound effort = real transformation.</p>
+        </div>
+        <div>
+          <button id="resetTrackerBtn" class="btn-outline" style="font-size: 0.9rem;">⟳ Reset challenge</button>
+        </div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 1.5rem; justify-content: space-between;">
+        <div style="flex: 1; min-width: 140px; background: #f5faf8; border-radius: 24px; padding: 1rem; text-align: center;">
+          <div style="font-size: 1.8rem; font-weight: 800;" id="genKnowledgeCount">0</div>
+          <div style="font-weight: 600;">📚 General Knowledge</div>
+          <button data-pillar="gen" class="streak-btn" style="margin-top: 12px; background: #e2efe8; border: none; padding: 6px 18px; border-radius: 60px; cursor: pointer; font-weight: 500;">+1 day</button>
+        </div>
+        <div style="flex: 1; min-width: 140px; background: #f5faf8; border-radius: 24px; padding: 1rem; text-align: center;">
+          <div style="font-size: 1.8rem; font-weight: 800;" id="commCount">0</div>
+          <div style="font-weight: 600;">🗣️ Communication</div>
+          <button data-pillar="comm" class="streak-btn" style="margin-top: 12px; background: #e2efe8; border: none; padding: 6px 18px; border-radius: 60px; cursor: pointer;">+1 day</button>
+        </div>
+        <div style="flex: 1; min-width: 140px; background: #f5faf8; border-radius: 24px; padding: 1rem; text-align: center;">
+          <div style="font-size: 1.8rem; font-weight: 800;" id="healthCount">0</div>
+          <div style="font-weight: 600;">💪 Health</div>
+          <button data-pillar="health" class="streak-btn" style="margin-top: 12px; background: #e2efe8; border: none; padding: 6px 18px; border-radius: 60px; cursor: pointer;">+1 day</button>
+        </div>
+        <div style="flex: 1; min-width: 140px; background: #f5faf8; border-radius: 24px; padding: 1rem; text-align: center;">
+          <div style="font-size: 1.8rem; font-weight: 800;" id="financeCount">0</div>
+          <div style="font-weight: 600;">💰 Finance</div>
+          <button data-pillar="finance" class="streak-btn" style="margin-top: 12px; background: #e2efe8; border: none; padding: 6px 18px; border-radius: 60px; cursor: pointer;">+1 day</button>
+        </div>
+      </div>
+      <p style="font-size: 0.85rem; margin-top: 1.8rem; text-align: center; color: #558077;">✨ Track your consistency — each click represents one day of focused skill practice. Small steps build elite habits.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>⚡ SkillMax — real life skill maxing, one deliberate step at a time. MVP for growth-minded humans.</p>
+    <p style="margin-top: 0.5rem; font-size: 0.8rem;">Consistency > intensity. Start where you are. 🧭</p>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    // ---------- Daily step commitment logic ----------
+    const commitBtn = document.getElementById('commitBtn');
+    const stepInput = document.getElementById('stepInput');
+    const stepFeedback = document.getElementById('stepFeedback');
+    
+    // Load saved daily commitment from localStorage
+    function loadDailyCommitment() {
+      const savedCommit = localStorage.getItem('skillmax_daily_commit');
+      const savedDate = localStorage.getItem('skillmax_commit_date');
+      const today = new Date().toDateString();
+      if (savedCommit && savedDate === today) {
+        stepFeedback.innerHTML = `✅ You committed today: "${savedCommit}". Keep crushing it! Come back tomorrow for a new step.`;
+        stepInput.disabled = true;
+        commitBtn.disabled = true;
+        commitBtn.style.opacity = '0.6';
+        commitBtn.style.cursor = 'default';
+      } else if (savedCommit && savedDate !== today) {
+        // new day, enable fresh commitment
+        stepInput.disabled = false;
+        commitBtn.disabled = false;
+        commitBtn.style.opacity = '1';
+        stepFeedback.innerHTML = `🌅 New day! Ready for your next micro-action. Yesterday you did: "${savedCommit}". Set today's step.`;
+        stepInput.value = "";
+      } else {
+        stepInput.disabled = false;
+        commitBtn.disabled = false;
+        commitBtn.style.opacity = '1';
+        stepFeedback.innerHTML = `💡 Click commit to lock in your daily action. Progress over perfection.`;
+      }
+    }
+    
+    function saveDailyCommit(commitText) {
+      if (!commitText.trim()) {
+        stepFeedback.innerHTML = `⚠️ Please write a small action step before committing.`;
+        return false;
+      }
+      const today = new Date().toDateString();
+      localStorage.setItem('skillmax_daily_commit', commitText.trim());
+      localStorage.setItem('skillmax_commit_date', today);
+      stepFeedback.innerHTML = `🎉 Amazing! Today's step: "${commitText.trim()}". Small win → big momentum. Come back tomorrow for your next upgrade.`;
+      stepInput.disabled = true;
+      commitBtn.disabled = true;
+      commitBtn.style.opacity = '0.6';
+      return true;
+    }
+    
+    commitBtn.addEventListener('click', () => {
+      const commitValue = stepInput.value;
+      saveDailyCommit(commitValue);
+    });
+    
+    // ---------- Streak Tracker (simple counters) ----------
+    // pillars: gen, comm, health, finance
+    let streaks = {
+      gen: 0,
+      comm: 0,
+      health: 0,
+      finance: 0
+    };
+    
+    // Load saved streaks from localStorage
+    function loadStreaks() {
+      const saved = localStorage.getItem('skillmax_streaks');
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          if (parsed.gen !== undefined) streaks = parsed;
+        } catch(e) {}
+      }
+      updateStreakUI();
+    }
+    
+    function updateStreakUI() {
+      document.getElementById('genKnowledgeCount').innerText = streaks.gen;
+      document.getElementById('commCount').innerText = streaks.comm;
+      document.getElementById('healthCount').innerText = streaks.health;
+      document.getElementById('financeCount').innerText = streaks.finance;
+      localStorage.setItem('skillmax_streaks', JSON.stringify(streaks));
+    }
+    
+    function incrementStreak(pillar) {
+      if (pillar === 'gen') {
+        streaks.gen += 1;
+      } else if (pillar === 'comm') {
+        streaks.comm += 1;
+      } else if (pillar === 'health') {
+        streaks.health += 1;
+      } else if (pillar === 'finance') {
+        streaks.finance += 1;
+      }
+      updateStreakUI();
+      // Optional micro-feedback effect - small notif in console but we can also show a temporary tooltip
+      const msg = `➕ +1 day to ${getPillarName(pillar)}! Keep the streak alive.`;
+      showTemporaryToast(msg);
+    }
+    
+    function getPillarName(pillar) {
+      const map = { gen: "General Knowledge", comm: "Communication", health: "Health", finance: "Finance" };
+      return map[pillar];
+    }
+    
+    function showTemporaryToast(message) {
+      // create a quick floating message near bottom right, disappears after 2s
+      const toast = document.createElement('div');
+      toast.innerText = message;
+      toast.style.position = 'fixed';
+      toast.style.bottom = '24px';
+      toast.style.right = '24px';
+      toast.style.backgroundColor = '#1e6f5c';
+      toast.style.color = 'white';
+      toast.style.padding = '12px 20px';
+      toast.style.borderRadius = '60px';
+      toast.style.fontWeight = '500';
+      toast.style.fontSize = '0.9rem';
+      toast.style.boxShadow = '0 6px 16px rgba(0,0,0,0.1)';
+      toast.style.zIndex = '999';
+      toast.style.opacity = '0';
+      toast.style.transition = 'opacity 0.2s';
+      document.body.appendChild(toast);
+      setTimeout(() => { toast.style.opacity = '1'; }, 10);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => { if(toast.parentNode) toast.remove(); }, 300);
+      }, 2000);
+    }
+    
+    function resetAllStreaks() {
+      streaks = { gen: 0, comm: 0, health: 0, finance: 0 };
+      updateStreakUI();
+      showTemporaryToast("🔄 All skill streaks have been reset. New beginning!");
+    }
+    
+    // attach event listeners to all streak buttons
+    const streakBtns = document.querySelectorAll('.streak-btn');
+    streakBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const pillar = btn.getAttribute('data-pillar');
+        if (pillar) incrementStreak(pillar);
+      });
+    });
+    
+    const resetBtn = document.getElementById('resetTrackerBtn');
+    if (resetBtn) resetBtn.addEventListener('click', resetAllStreaks);
+    
+    // initial load
+    loadDailyCommitment();
+    loadStreaks();
+    
+    // Re-check date when page becomes visible (in case user keeps tab open overnight)
+    window.addEventListener('focus', () => {
+      // re-evaluate daily commitment locking based on date
+      const savedDate = localStorage.getItem('skillmax_commit_date');
+      const today = new Date().toDateString();
+      if (savedDate !== today) {
+        // enable new day
+        const savedCommit = localStorage.getItem('skillmax_daily_commit');
+        stepInput.disabled = false;
+        commitBtn.disabled = false;
+        commitBtn.style.opacity = '1';
+        if (savedCommit) {
+          stepFeedback.innerHTML = `🌞 New day! Yesterday's step: "${savedCommit}". What's today's micro-action?`;
+        } else {
+          stepFeedback.innerHTML = `💡 New day — set your daily step and commit to leveling up.`;
+        }
+        stepInput.value = "";
+      } else {
+        // already committed today: ensure disabled state
+        const savedCommit = localStorage.getItem('skillmax_daily_commit');
+        if (savedCommit) {
+          stepInput.disabled = true;
+          commitBtn.disabled = true;
+          commitBtn.style.opacity = '0.6';
+          stepFeedback.innerHTML = `✅ You committed today: "${savedCommit}". Keep going! Come back tomorrow.`;
+        }
+      }
+    });
+  })();
+</script>
+</body>
+</html>
